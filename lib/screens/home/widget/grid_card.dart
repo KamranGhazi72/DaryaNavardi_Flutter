@@ -1,3 +1,5 @@
+import 'package:darya_navardi/screens/marine_books/marine_books_screen.dart';
+import 'package:darya_navardi/screens/marine_course/marine_course_screen.dart';
 import 'package:flutter/material.dart';
 
 class GridCard extends StatelessWidget {
@@ -24,23 +26,60 @@ class GridCard extends StatelessWidget {
 class Choice {
   String title;
   IconData icon;
+  dynamic Function() page;
 
-  Choice({required this.title, required this.icon});
+  Choice({required this.title, required this.icon, required this.page});
 }
 
 List<Choice> choices = <Choice>[
-  Choice(title: 'محاسبه زمان نشستن', icon: Icons.calculate_outlined),
-  Choice(title: 'محاسبه زمان NRI', icon: Icons.pending_actions_outlined),
-  Choice(title: 'مرکز واکسیناسیون', icon: Icons.add_box_outlined),
-  Choice(title: 'مدیریت اسناد', icon: Icons.folder_open_outlined),
-  Choice(title: 'دانشکده دریایی', icon: Icons.school_outlined),
-  Choice(title: 'انجمن', icon: Icons.forum_outlined),
-  Choice(title: 'کتاب های دریانوردی', icon: Icons.auto_stories_outlined),
-  Choice(title: 'دوره های دریایی', icon: Icons.cast_for_education_outlined),
-  Choice(title: 'لینک های وبسایت', icon: Icons.link_outlined),
-  Choice(title: 'بخشنامه ها', icon: Icons.receipt_long_outlined),
-  Choice(title: 'ویدئوهای یوتیوب', icon: Icons.play_circle_outline_outlined),
-  Choice(title: 'پزشکان', icon: Icons.enhanced_encryption_outlined),
+  Choice(
+      title: 'محاسبه زمان نشستن',
+      icon: Icons.calculate_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'محاسبه زمان NRI',
+      icon: Icons.pending_actions_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'مرکز واکسیناسیون',
+      icon: Icons.add_box_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'مدیریت اسناد',
+      icon: Icons.folder_open_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'دانشکده دریایی',
+      icon: Icons.school_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'انجمن',
+      icon: Icons.forum_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'کتاب های دریانوردی',
+      icon: Icons.auto_stories_outlined,
+      page: () => MarineBooksScreen()),
+  Choice(
+      title: 'دوره های دریایی',
+      icon: Icons.cast_for_education_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'لینک های وبسایت',
+      icon: Icons.link_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'بخشنامه ها',
+      icon: Icons.receipt_long_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'ویدئوهای یوتیوب',
+      icon: Icons.play_circle_outline_outlined,
+      page: () => SeaCourseScreen()),
+  Choice(
+      title: 'پزشکان',
+      icon: Icons.enhanced_encryption_outlined,
+      page: () => SeaCourseScreen()),
 ];
 
 class SelectCard extends StatelessWidget {
@@ -50,7 +89,10 @@ class SelectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => choice.page()));
+      },
       child: Container(
           // color: Colors.orange,
           decoration: BoxDecoration(

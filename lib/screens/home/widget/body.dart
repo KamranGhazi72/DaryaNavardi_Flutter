@@ -10,8 +10,8 @@ class Body extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.cover,
           colorFilter: new ColorFilter.mode(
-              Colors.black.withOpacity(0.45), BlendMode.darken),
-          image: AssetImage("assets/images/sea-home.jpg"),
+              Colors.black.withOpacity(0.4), BlendMode.darken),
+          image: AssetImage("assets/images/Home.png"),
         ),
       ),
       child: Column(
