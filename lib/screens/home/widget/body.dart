@@ -1,3 +1,4 @@
+import 'package:darya_navardi/screens/home/widget/grid_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -7,8 +8,10 @@ class Body extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/sea-home.jpg"),
           fit: BoxFit.cover,
+          colorFilter: new ColorFilter.mode(
+              Colors.black.withOpacity(0.45), BlendMode.darken),
+          image: AssetImage("assets/images/sea-home.jpg"),
         ),
       ),
       child: Column(
@@ -30,18 +33,25 @@ class Body extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
+            padding: const EdgeInsets.symmetric(vertical: 0),
             child: Center(
-                child: IconButton(
-              iconSize: 100,
-              icon: SvgPicture.asset('assets/icons/User.svg',
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                  semanticsLabel: 'A red up arrow'),
-              onPressed: () {},
-            )),
+              child: Image.asset(
+                'assets/images/XMLID_240_.png',
+                fit: BoxFit.cover,
+                height: 110,
+              ),
+              //     child: IconButton(
+              //   iconSize: 100,
+              //   icon: SvgPicture.asset('assets/icons/User.svg',
+              //       height: 100,
+              //       width: 100,
+              //       color: Colors.red,
+              //       semanticsLabel: 'A red up arrow'),
+              //   onPressed: () {},
+              // )
+            ),
           ),
+          GridCard(),
         ],
       ),
     );
